@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QQ消息截图生成器(纵向布局)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container-vertical">
+        <div class="preview-container">
+            <h2>预览</h2>
+            <div id="preview">
+                <div class="message-group">
+                    <img id="preview-avatar" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="avatar" class="avatar">
+                    <div class="message-content">
+                        <div class="nickname-row">
+                            <span id="preview-group-title" class="group-title"></span>
+                            <span id="preview-nickname" class="nickname">昵称</span>
+                        </div>
+                        <div class="message-bubble">
+                            <p id="preview-text">消息内容</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="controls-container">
+            <textarea id="text-to-parse" placeholder="在此处粘贴需要解析的文本..."></textarea>
+            <input type="text" id="nickname-input" placeholder="昵称">
+            <div class="group-title-controls">
+                <input type="text" id="group-title-input" placeholder="群头衔 (可选)">
+                <select id="group-title-color-select">
+                    <option value="">无背景</option>
+                    <option value="#63B2FF" selected>蓝色</option>
+                    <option value="#44CE84">绿色</option>
+                    <option value="#FFCC1E">黄色</option>
+                    <option value="#9B59B6">紫色</option>
+                </select>
+            </div>
+            <textarea id="message-input" placeholder="消息内容"></textarea>
+            <select id="color-select">
+                <option value="#e8e8e8">气泡颜色(默认)</option>
+                <option value="#ffffff">白色</option>
+                <option value="#1399FE">蓝色</option>
+            </select>
+            <div class="file-input-wrapper">
+                <button onclick="document.getElementById('avatar-input').click()">选择头像</button>
+                <input type="file" id="avatar-input" accept="image/*" style="display: none;">
+                <span id="avatar-path">未选择文件</span>
+            </div>
+            <div id="avatar-history-container" class="avatar-history"></div>
+            <button id="export-btn">导出图片</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
